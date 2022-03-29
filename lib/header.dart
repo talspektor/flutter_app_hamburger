@@ -78,12 +78,12 @@ class _HeaderState extends State<Header> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                 ],
               ),
               Positioned(
                 bottom: 0,
-                child: Container(
+                child: SizedBox(
                   height: 50,
                   width: size.width,
                   child: Card(

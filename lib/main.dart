@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_hamburger/categories.dart';
+import 'package:flutter_app_hamburger/hamburger_list.dart';
 import 'package:flutter_app_hamburger/header.dart';
+import 'package:flutter_app_hamburger/rugger_pagee.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,12 +15,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        primaryColor: Colors.teal,
+        cardColor: Colors.white,
         appBarTheme: const AppBarTheme(color: Colors.teal, centerTitle: true),
         bottomAppBarColor: Colors.teal,
         floatingActionButtonTheme:
             const FloatingActionButtonThemeData(backgroundColor: Colors.teal),
       ),
       home: const Hamburger(),
+      routes: {BurgerPage.tag: (_) => const BurgerPage()},
       debugShowCheckedModeBanner: false,
     );
   }
@@ -51,16 +56,22 @@ class _HamburgerState extends State<Hamburger> {
           ),
           const Header(),
           const Categories(),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                const Text(
-                  'Hamburger',
-                  style: TextStyle(fontSize: 300),
-                ),
-              ],
-            ),
+          const HamburgersList(
+            row: 1,
           ),
+          const HamburgersList(
+            row: 2,
+          ),
+          // SliverList(
+          //   delegate: SliverChildListDelegate(
+          //     [
+          //       // const Text(
+          //       //   'Hamburger',
+          //       //   style: TextStyle(fontSize: 300),
+          //       // ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
       extendBody: true,
